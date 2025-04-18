@@ -1,30 +1,56 @@
-# ArticleForge
+# Polar Content
 
-ArticleForge es una aplicación web moderna desarrollada con React y TypeScript que utiliza inteligencia artificial para generar contenido de alta calidad. La aplicación permite a los usuarios crear artículos optimizados para SEO a partir de palabras clave y exportarlos en diferentes formatos.
+Polar Content es una aplicación web moderna desarrollada con React y TypeScript que utiliza la potencia de la inteligencia artificial para generar contenido de alta calidad. Diseñada como parte del curso de Sistemas de Información Gerencial de la Maestría en Alta Dirección de la Facultad de Química - UNAM, esta aplicación demuestra la integración práctica de tecnologías modernas para la generación automatizada de contenido.
 
-## Características
+## 🚀 Características Principales
 
-- 🤖 Generación de contenido con IA usando GPT-3.5
-- 📝 Diferentes longitudes de artículos (corto, medio, largo)
-- 💾 Exportación en múltiples formatos:
-  - PDF
-  - Markdown
-  - Word (DOCX)
-- 🎨 Interfaz moderna y responsiva con Tailwind CSS
-- 🌐 Soporte completo para español
+- 🤖 **Generación Inteligente de Contenido**
+  - Utiliza GPT-3.5 de OpenAI
+  - Contenido estructurado con títulos y subtítulos
+  - Optimización automática para SEO
+  
+- 📝 **Flexibilidad en la Generación**
+  - Artículos cortos (~250 palabras)
+  - Artículos medianos (~500 palabras)
+  - Artículos largos (~1000 palabras)
 
-## Requisitos Previos
+- 💾 **Exportación Versátil**
+  - PDF para documentos profesionales
+  - Markdown para blogs y CMS
+  - Word (DOCX) para edición posterior
+
+- 🎨 **Interfaz Moderna**
+  - Diseño responsivo con Tailwind CSS
+  - Experiencia de usuario intuitiva
+  - Indicadores visuales de progreso
+
+## 🛠️ Tecnologías Utilizadas
+
+- **Frontend:**
+  - React 18 con TypeScript
+  - Tailwind CSS para estilos
+  - Vite como bundler
+
+- **Integración IA:**
+  - OpenAI API (GPT-3.5)
+
+- **Exportación:**
+  - @react-pdf/renderer
+  - react-markdown
+  - docx
+
+## 📋 Requisitos Previos
 
 - Node.js (v16 o superior)
 - npm o yarn
-- Una API key de OpenAI
+- API key de OpenAI
 
-## Instalación
+## 🚀 Instalación
 
 1. Clona el repositorio:
 ```bash
 git clone [URL_DEL_REPOSITORIO]
-cd articforge
+cd polar-content
 ```
 
 2. Instala las dependencias:
@@ -32,8 +58,9 @@ cd articforge
 npm install
 ```
 
-3. Crea un archivo `.env` en la raíz del proyecto:
-```env
+3. Configura las variables de entorno:
+```bash
+# Crea un archivo .env en la raíz del proyecto
 VITE_OPENAI_API_KEY=tu_api_key_de_openai
 ```
 
@@ -42,31 +69,19 @@ VITE_OPENAI_API_KEY=tu_api_key_de_openai
 npm run dev
 ```
 
-## Uso
+## 🎯 Uso
 
-1. Ingresa una palabra clave o descripción del tema sobre el que deseas generar contenido
-2. Selecciona la longitud deseada para tu artículo
-3. Haz clic en "Crear Nuevo Artículo"
-4. Una vez generado el contenido, puedes exportarlo en el formato que prefieras:
-   - PDF: Ideal para documentos formales
-   - Markdown: Perfecto para blogs y plataformas que soporten markdown
-   - DOCX: Compatible con Microsoft Word y otros procesadores de texto
+1. Ingresa al navegador en `http://localhost:5173`
+2. Escribe una palabra clave o tema para tu artículo
+3. Selecciona la longitud deseada
+4. Haz clic en "Crear Nuevo Artículo"
+5. Espera mientras la IA genera tu contenido
+6. Exporta el resultado en tu formato preferido
 
-## Tecnologías Utilizadas
-
-- React 18
-- TypeScript
-- Tailwind CSS
-- Vite
-- OpenAI API
-- @react-pdf/renderer
-- react-markdown
-- docx
-
-## Estructura del Proyecto
+## 📁 Estructura del Proyecto
 
 ```
-articforge/
+polar-content/
 ├── src/
 │   ├── components/
 │   │   ├── ContentGenerator.tsx
@@ -80,15 +95,21 @@ articforge/
 └── package.json
 ```
 
-## Contribuir
+## 🤝 Contribuir
 
-1. Haz un Fork del proyecto
-2. Crea una rama para tu característica (`git checkout -b feature/AmazingFeature`)
-3. Haz commit de tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
+Las contribuciones son bienvenidas. Para cambios importantes:
+
+1. Haz fork del proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/NuevaCaracteristica`)
+3. Commit de tus cambios (`git commit -m 'Añade nueva característica'`)
+4. Push a la rama (`git push origin feature/NuevaCaracteristica`)
 5. Abre un Pull Request
 
-## Licencia
+## ✨ Créditos
+
+Desarrollado por Roberto Andrade F. como proyecto académico para la Maestría en Alta Dirección (MADEMS) de la Facultad de Química - UNAM, con el apoyo de Cursor AI. Inspirado en [ArticleForge](https://www.articleforge.com/).
+
+## 📄 Licencia
 
 Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
 
