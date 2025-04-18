@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import ContentGenerator from './components/ContentGenerator'
+import ExportButtons from './components/ExportButtons'
 import { generateContent } from './services/openai'
 
 function App() {
@@ -74,6 +75,9 @@ function App() {
             {generatedContent && !isLoading && (
               <div className="mt-6 bg-white p-6 rounded-lg shadow-lg">
                 <pre className="text-lg text-gray-700 whitespace-pre-wrap">{generatedContent}</pre>
+                <div className="mt-4">
+                  <ExportButtons content={generatedContent} />
+                </div>
               </div>
             )}
           </div>
@@ -91,6 +95,7 @@ function App() {
                 <li className="pl-2">Selecciona la longitud deseada para tu artículo</li>
                 <li className="pl-2">Haz clic en "Crear Nuevo Artículo" y espera mientras nuestro sistema genera el contenido</li>
                 <li className="pl-2">Obtén un artículo único y bien estructurado listo para usar</li>
+                <li className="pl-2">Exporta el contenido en el formato que prefieras: PDF, Markdown o Word</li>
               </ol>
               <p>
                 El contenido generado es único, relevante y optimizado para SEO, 
@@ -104,4 +109,4 @@ function App() {
   )
 }
 
-export default App
+export default App 

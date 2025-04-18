@@ -1,54 +1,98 @@
-# React + TypeScript + Vite
+# ArticleForge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ArticleForge es una aplicación web moderna desarrollada con React y TypeScript que utiliza inteligencia artificial para generar contenido de alta calidad. La aplicación permite a los usuarios crear artículos optimizados para SEO a partir de palabras clave y exportarlos en diferentes formatos.
 
-Currently, two official plugins are available:
+## Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🤖 Generación de contenido con IA usando GPT-3.5
+- 📝 Diferentes longitudes de artículos (corto, medio, largo)
+- 💾 Exportación en múltiples formatos:
+  - PDF
+  - Markdown
+  - Word (DOCX)
+- 🎨 Interfaz moderna y responsiva con Tailwind CSS
+- 🌐 Soporte completo para español
 
-## Expanding the ESLint configuration
+## Requisitos Previos
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Node.js (v16 o superior)
+- npm o yarn
+- Una API key de OpenAI
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Instalación
+
+1. Clona el repositorio:
+```bash
+git clone [URL_DEL_REPOSITORIO]
+cd articforge
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+2. Instala las dependencias:
+```bash
+npm install
 ```
+
+3. Crea un archivo `.env` en la raíz del proyecto:
+```env
+VITE_OPENAI_API_KEY=tu_api_key_de_openai
+```
+
+4. Inicia el servidor de desarrollo:
+```bash
+npm run dev
+```
+
+## Uso
+
+1. Ingresa una palabra clave o descripción del tema sobre el que deseas generar contenido
+2. Selecciona la longitud deseada para tu artículo
+3. Haz clic en "Crear Nuevo Artículo"
+4. Una vez generado el contenido, puedes exportarlo en el formato que prefieras:
+   - PDF: Ideal para documentos formales
+   - Markdown: Perfecto para blogs y plataformas que soporten markdown
+   - DOCX: Compatible con Microsoft Word y otros procesadores de texto
+
+## Tecnologías Utilizadas
+
+- React 18
+- TypeScript
+- Tailwind CSS
+- Vite
+- OpenAI API
+- @react-pdf/renderer
+- react-markdown
+- docx
+
+## Estructura del Proyecto
+
+```
+articforge/
+├── src/
+│   ├── components/
+│   │   ├── ContentGenerator.tsx
+│   │   └── ExportButtons.tsx
+│   ├── services/
+│   │   └── openai.ts
+│   ├── App.tsx
+│   └── main.tsx
+├── public/
+├── .env
+└── package.json
+```
+
+## Contribuir
+
+1. Haz un Fork del proyecto
+2. Crea una rama para tu característica (`git checkout -b feature/AmazingFeature`)
+3. Haz commit de tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+## Licencia
+
+Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+
+## Contacto
+
+Nombre - [@tu_twitter](https://twitter.com/tu_twitter)
+Link del Proyecto: [https://github.com/tu_usuario/articforge](https://github.com/tu_usuario/articforge) 
