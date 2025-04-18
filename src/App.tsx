@@ -3,8 +3,13 @@ import ContentGenerator from './components/ContentGenerator'
 import ExportButtons from './components/ExportButtons'
 import { generateContent } from './services/openai'
 
+interface GeneratedContentState {
+  content: string;
+  filename: string;
+}
+
 function App() {
-  const [generatedContent, setGeneratedContent] = useState<string>('');
+  const [generatedContent, setGeneratedContent] = useState<GeneratedContentState>({ content: '', filename: '' });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string>('');
 
@@ -12,8 +17,8 @@ function App() {
     try {
       setIsLoading(true);
       setError('');
-      const content = await generateContent(keyword, length);
-      setGeneratedContent(content || '');
+      const result = await generateContent(keyword, length);
+      setGeneratedContent(result);
     } catch (err) {
       setError('Error al generar el contenido. Por favor, verifica tu API key y vuelve a intentar.');
       console.error(err);
@@ -25,15 +30,15 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-100 to-purple-100">
       {/* Header centrado */}
-      <header className="bg-white shadow-sm">
+      <header className="bg-blue-900 shadow-sm">
         <div className="max-w-7xl mx-auto py-8 px-4">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">ArticleForge</h1>
-            <div className="space-y-1 text-lg text-gray-600">
-              <p className="font-medium">Demo</p>
-              <p>Sistemas de Información Gerencial</p>
-              <p>Maestría en Alta Dirección</p>
-              <p>Facultad de Química - UNAM</p>
+            <h1 className="text-5xl font-bold text-teal-600 mb-4">Polar Content</h1>
+            <div className="space-y-1 text-3xl text-gray-100">
+              <p className="font-medium text-gray-100">Demo Académico</p>
+              <p className="font-medium text-gray-100">Sistemas de Información Gerencial</p>
+              <p className="font-medium text-gray-100">Maestría en Alta Dirección</p>
+              <p className="font-medium text-gray-100">Facultad de Química - UNAM</p>
             </div>
           </div>
         </div>
@@ -72,11 +77,11 @@ function App() {
               </div>
             )}
             
-            {generatedContent && !isLoading && (
+            {generatedContent.content && !isLoading && (
               <div className="mt-6 bg-white p-6 rounded-lg shadow-lg">
-                <pre className="text-lg text-gray-700 whitespace-pre-wrap">{generatedContent}</pre>
+                <pre className="text-lg text-gray-700 whitespace-pre-wrap">{generatedContent.content}</pre>
                 <div className="mt-4">
-                  <ExportButtons content={generatedContent} />
+                  <ExportButtons content={generatedContent.content} filename={generatedContent.filename} />
                 </div>
               </div>
             )}

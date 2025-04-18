@@ -4,6 +4,7 @@ import { Document as DocxDocument, Packer, Paragraph } from 'docx';
 
 interface ExportButtonsProps {
   content: string;
+  filename: string;
 }
 
 const styles = StyleSheet.create({
@@ -28,13 +29,13 @@ const PDFDocument = ({ content }: { content: string }) => (
   </Document>
 );
 
-const ExportButtons = ({ content }: ExportButtonsProps) => {
+const ExportButtons = ({ content, filename }: ExportButtonsProps) => {
   console.log('ExportButtons rendering with content:', content);
 
   const exportToMarkdown = () => {
     console.log('Exporting to Markdown...');
     const blob = new Blob([content], { type: 'text/markdown;charset=utf-8' });
-    saveAs(blob, 'content.md');
+    saveAs(blob, `${filename}.md`);
   };
 
   const exportToDocx = async () => {
@@ -51,14 +52,14 @@ const ExportButtons = ({ content }: ExportButtonsProps) => {
     });
 
     const blob = await Packer.toBlob(doc);
-    saveAs(blob, 'content.docx');
+    saveAs(blob, `${filename}.docx`);
   };
 
   return (
     <div className="flex flex-wrap gap-2 mt-4 p-4 border-t border-gray-200">
       <PDFDownloadLink
         document={<PDFDocument content={content} />}
-        fileName="content.pdf"
+        fileName={`${filename}.pdf`}
         className="inline-block px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors cursor-pointer"
       >
         {({ loading }) => (loading ? 'Generando PDF...' : 'Exportar como PDF')}
